@@ -7,11 +7,11 @@ namespace Quoridor
 {
     public partial class UserInterface : Form
     {
-        private Form1 Form;
+        private GameBoard Form;
         public UserInterface()
         {
             InitializeComponent();
-            Form = new Form1(this);
+            Form = new GameBoard(this);
         }
 
         public bool playWithBot { get; set; }

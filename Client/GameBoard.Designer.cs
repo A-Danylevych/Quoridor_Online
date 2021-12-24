@@ -1,7 +1,7 @@
 ﻿
 namespace Quoridor
 {
-    partial class Form1
+    partial class GameBoard
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -30,7 +30,7 @@ namespace Quoridor
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameBoard));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
@@ -3022,6 +3022,7 @@ namespace Quoridor
             this.GreenDot.TabIndex = 48;
             this.GreenDot.TabStop = false;
             this.GreenDot.Tag = "Green Dot";
+            this.GreenDot.Click += new System.EventHandler(this.GreenDot_Click);
             // 
             // RedDot
             // 
@@ -3044,7 +3045,7 @@ namespace Quoridor
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(22, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(79, 29);
+            this.label1.Size = new System.Drawing.Size(46, 18);
             this.label1.TabIndex = 49;
             this.label1.Text = "label1";
             // 
@@ -3056,11 +3057,11 @@ namespace Quoridor
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(383, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 29);
+            this.label2.Size = new System.Drawing.Size(46, 18);
             this.label2.TabIndex = 49;
             this.label2.Text = "label1";
             // 
-            // Form1
+            // GameBoard
             // 
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -3299,7 +3300,7 @@ namespace Quoridor
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.Name = "GameBoard";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quoridor";

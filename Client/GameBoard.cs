@@ -7,7 +7,7 @@ using Color = System.Drawing.Color;
 namespace Quoridor
 {
 
-    public partial class Form1 : Form, IViewer
+    public partial class GameBoard : Form, IViewer
     {
         Controller.Controller Controller { get; set; }
         Game Game;
@@ -15,7 +15,7 @@ namespace Quoridor
 
         bool isGameOver;
 
-        public Form1(UserInterface form)  //запускає дії в формі
+        public GameBoard(UserInterface form, Model.Color color)  //запускає дії в формі
         {
             Form = form;
             Controller = new Controller.Controller();
@@ -469,6 +469,11 @@ namespace Quoridor
         {
             label1.Text = "Залишилось стін: " + BottomCount;
             label2.Text = "Залишилось стін: " + TopCount;
+        }
+
+        private void GreenDot_Click(object sender, EventArgs e)
+        {
+
         }
     }
 
