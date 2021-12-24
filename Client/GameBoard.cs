@@ -41,15 +41,13 @@ namespace Quoridor
             foreach (Control x in this.Controls)
             {
                 if ((string)x.Tag == "Wall" && !TouchingOther(x.Top, x.Left))
-                {                    
-                    x.MouseClick += (a_sender, a_args) => 
-                    {      
+                {
+                    x.MouseClick += (a_sender, a_args) =>
+                    {
                         Controller.SetAction(Model.Action.PlaceWall);
                         Controller.SetWall(x.Top, x.Left, IsVertical(x.Top, x.Left));
                         Game.Update();
                     };
-
-
                     x.MouseHover += (a_sender, a_args) =>
                     {
                         if (x.BackColor != Color.LightSlateGray && !TouchingOther(x.Top, x.Left))
@@ -72,8 +70,6 @@ namespace Quoridor
 
                 if ((string)x.Tag == "Cell") 
                 {
-                    
-
                     x.MouseClick += (a_sender, a_args) =>
                     {
                         Controller.SetAction(Model.Action.MakeMove);
@@ -134,7 +130,7 @@ namespace Quoridor
             return false;
         }
 
-        public void resetGame(bool gameWithBot)
+        public void resetGame()
         {
 
             gameTimer.Start(); 
@@ -144,7 +140,7 @@ namespace Quoridor
 
             isGameOver = false;
 
-            Game.NewGame(gameWithBot);
+            Game.NewGame();
             ClearWalls();
             RenderBottomPlayer(625, 325);
             RenderUpperPlayer(25, 325);

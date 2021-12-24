@@ -14,13 +14,11 @@ namespace Quoridor
             Form = new GameBoard(this);
         }
 
-        public bool playWithBot { get; set; }
-
         private void Close()
         {
             Hide();
 
-            Form.resetGame(playWithBot);
+            Form.resetGame();
             
             Form.Show();
 
@@ -28,13 +26,11 @@ namespace Quoridor
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            playWithBot = true;
             Close();
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            playWithBot = false;
             Close();
         }
 
