@@ -11,11 +11,11 @@ namespace Quoridor
     {
         Controller.Controller Controller { get; set; }
         Game Game;
-        private Form0 Form;
+        private UserInterface Form;
 
         bool isGameOver;
 
-        public Form1(Form0 form)  //запускає дії в формі
+        public Form1(UserInterface form)  //запускає дії в формі
         {
             Form = form;
             Controller = new Controller.Controller();

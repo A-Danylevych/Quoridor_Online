@@ -1,6 +1,6 @@
 ﻿namespace Quoridor
 {
-    partial class Form0
+    partial class UserInterface
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form0));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserInterface));
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -42,9 +42,9 @@
             this.label1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(92, 197);
+            this.label1.Location = new System.Drawing.Point(180, 155);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(524, 58);
+            this.label1.Size = new System.Drawing.Size(358, 39);
             this.label1.TabIndex = 0;
             this.label1.Text = "С кем хотите играть?";
             // 
@@ -80,15 +80,15 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // Form0
+            // UserInterface
             // 
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(700, 702);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Name = "Form0";
-            this.Text = "Form0";
+            this.Name = "UserInterface";
+            this.Text = "UserInterface";
             this.ResumeLayout(false);
             this.PerformLayout();
 

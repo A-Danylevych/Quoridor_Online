@@ -5,10 +5,10 @@ using System.Windows.Forms;
 
 namespace Quoridor
 {
-    public partial class Form0 : Form
+    public partial class UserInterface : Form
     {
         private Form1 Form;
-        public Form0()
+        public UserInterface()
         {
             InitializeComponent();
             Form = new Form1(this);
