@@ -1,4 +1,8 @@
 ﻿using System.Threading.Tasks;
+using System;
+using System.Net.Http.Headers;
+using System.Net.Sockets;
+using Google.Protobuf;
 
 namespace Server
 {
@@ -12,11 +16,16 @@ namespace Server
                 while (true)
                 {
                     await server.Receive();
-                    await server.Reply();
+                    server.Reply();
                 }
             });
             
             
+            string read;
+            do
+            {
+                read = Console.ReadLine();
+            } while (read != "quit");
         }
     }
 }

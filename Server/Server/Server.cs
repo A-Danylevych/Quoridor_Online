@@ -1,7 +1,6 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Sockets;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 using Google.Protobuf;
 
@@ -35,21 +34,21 @@ namespace Server
 
             {
                 var client = new Client();
-                client.Password = client.Password;
+                client.Password = message.LogIn.Password;
                 client.EndPoint = client.EndPoint;
                 _lobbies.FindGame(client);
             }
         }
 
 
-        public async Task Reply()
+        public void Reply()
         {
             var dict = _lobbies.GetMessages();
             foreach (var (lobby, message) in dict)
             {
                 var data = message.ToByteArray();
-                await _client.SendAsync(data, data.Length, lobby.GreenPlayer.EndPoint);
-                await _client.SendAsync(data, data.Length, lobby.RedPlayer.EndPoint);
+                _client.Send(data, data.Length, lobby.GreenPlayer.EndPoint);
+                _client.Send(data, data.Length, lobby.RedPlayer.EndPoint);
             } 
         }
     }
