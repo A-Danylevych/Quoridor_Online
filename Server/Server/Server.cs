@@ -37,7 +37,16 @@ namespace Server
                     Password = message.LogIn.Password
                 };
                 client.EndPoint = client.EndPoint;
-                _lobbies.FindGame(client);
+                client = _lobbies.FindGame(client);
+                var responseMessage = new SWrapperMessage()
+                {
+                    Confirm = new SConfirm()
+                    {
+                        Color = client.Color,
+                    }
+                };
+                await _client.SendAsync(responseMessage.ToByteArray(), responseMessage.ToByteArray().Length,
+                    result.RemoteEndPoint);
             }
         }
 

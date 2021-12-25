@@ -23,18 +23,19 @@ namespace Server
             return _instance;
         }
 
-        public void FindGame(Client client)
+        public Client FindGame(Client client)
         {
             foreach (var game in _games.Where(game => game.IsWaiting()))
             {
                 client.Color = Color.Red;
                 game.SetRedPlayer(client);
                 game.StartGame();
-                return;
+                return client;
             }
 
             client.Color = Color.Green;
             _games.Add(new Lobby(client));
+            return client;
         }
 
         public bool MakeTurn(CMove move)
