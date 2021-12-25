@@ -12,7 +12,6 @@ namespace Quoridor
         Controller.Controller Controller { get; set; }
         Game Game;
         private UserInterface Form;
-
         bool isGameOver;
 
         public GameBoard(UserInterface form, Model.Color color)  //запускає дії в формі
@@ -132,7 +131,6 @@ namespace Quoridor
 
         public void resetGame()
         {
-
             gameTimer.Start(); 
 
             label1.Text = "Залишилось стін: 10";
