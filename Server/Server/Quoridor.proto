@@ -1,0 +1,32 @@
+﻿syntax = "proto3";
+package server;
+option csharp_namespace = "Server";
+
+enum Color{
+  White = 0;
+  Red = 1;
+  Green = 2;
+}
+enum Action{
+  Move = 0;
+  Wall = 1;
+}
+message Coords{
+  int32 Top = 1;
+  int32 Left = 2;
+}
+
+message CMove{
+  Coords coords = 1;
+  Action action = 2;
+}
+
+message State{
+  Coords coords = 1;
+  Color color = 2;
+}
+
+message SGameState{
+  Color winning = 1;
+  repeated State state = 2;
+}
