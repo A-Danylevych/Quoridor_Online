@@ -1,0 +1,61 @@
+﻿syntax = "proto3";
+package quoridor;
+option csharp_namespace = "Quoridor";
+
+enum Color{
+  White = 0;
+  Red = 1;
+  Green = 2;
+}
+enum Action{
+  Move = 0;
+  Wall = 1;
+}
+message Coords{
+  int32 Top = 1;
+  int32 Left = 2;
+}
+
+message CMove{
+  Coords coords = 1;
+  bool IsVertical = 2;
+  Action action = 3;
+  string password = 4;
+}
+message SMove{
+  Color color = 1;
+  Coords coords = 2;
+  Action action = 4;
+}
+
+message State{
+  Color color = 1;
+  int32 RemainingWalls = 2;
+}
+
+message SGameState{
+  Color winning = 1;
+  repeated State state = 2;
+}
+
+message CLogIn{
+  string password = 1;
+}
+
+message SConfirm{
+  Color color = 1;
+}
+
+message CWrapperMessage {
+  oneof msg {
+     CLogIn logIn = 1;
+     CMove move = 2;
+  }
+}
+message SWrapperMessage {
+  oneof msg {
+    SGameState gameState = 1;
+    SConfirm confirm = 2;
+    SMove move = 3;
+  }
+}
