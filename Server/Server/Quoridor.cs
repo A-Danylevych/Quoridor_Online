@@ -27,29 +27,28 @@ namespace Server {
             "Cg5RdW9yaWRvci5wcm90bxIGc2VydmVyIiMKBkNvb3JkcxILCgNUb3AYASAB",
             "KAUSDAoETGVmdBgCIAEoBSJtCgVDTW92ZRIeCgZjb29yZHMYASABKAsyDi5z",
             "ZXJ2ZXIuQ29vcmRzEhIKCklzVmVydGljYWwYAiABKAgSHgoGYWN0aW9uGAMg",
-            "ASgOMg4uc2VydmVyLkFjdGlvbhIQCghwYXNzd29yZBgEIAEoCSJ5CgVTTW92",
+            "ASgOMg4uc2VydmVyLkFjdGlvbhIQCghwYXNzd29yZBgEIAEoCSJlCgVTTW92",
             "ZRIcCgVjb2xvchgBIAEoDjINLnNlcnZlci5Db2xvchIeCgZjb29yZHMYAiAB",
-            "KAsyDi5zZXJ2ZXIuQ29vcmRzEhIKCklzVmVydGljYWwYAyABKAgSHgoGYWN0",
-            "aW9uGAQgASgOMg4uc2VydmVyLkFjdGlvbiJFCgVTdGF0ZRIeCgZjb29yZHMY",
-            "ASABKAsyDi5zZXJ2ZXIuQ29vcmRzEhwKBWNvbG9yGAIgASgOMg0uc2VydmVy",
-            "LkNvbG9yIkoKClNHYW1lU3RhdGUSHgoHd2lubmluZxgBIAEoDjINLnNlcnZl",
-            "ci5Db2xvchIcCgVzdGF0ZRgCIAMoCzINLnNlcnZlci5TdGF0ZSIaCgZDTG9n",
-            "SW4SEAoIcGFzc3dvcmQYASABKAkiKAoIU0NvbmZpcm0SHAoFY29sb3IYASAB",
-            "KA4yDS5zZXJ2ZXIuQ29sb3IiWAoPQ1dyYXBwZXJNZXNzYWdlEh8KBWxvZ0lu",
-            "GAEgASgLMg4uc2VydmVyLkNMb2dJbkgAEh0KBG1vdmUYAiABKAsyDS5zZXJ2",
-            "ZXIuQ01vdmVIAEIFCgNtc2cihQEKD1NXcmFwcGVyTWVzc2FnZRInCglnYW1l",
-            "U3RhdGUYASABKAsyEi5zZXJ2ZXIuU0dhbWVTdGF0ZUgAEiMKB2NvbmZpcm0Y",
-            "AiABKAsyEC5zZXJ2ZXIuU0NvbmZpcm1IABIdCgRtb3ZlGAMgASgLMg0uc2Vy",
-            "dmVyLlNNb3ZlSABCBQoDbXNnKiYKBUNvbG9yEgkKBVdoaXRlEAASBwoDUmVk",
-            "EAESCQoFR3JlZW4QAiocCgZBY3Rpb24SCAoETW92ZRAAEggKBFdhbGwQAUIJ",
-            "qgIGU2VydmVyYgZwcm90bzM="));
+            "KAsyDi5zZXJ2ZXIuQ29vcmRzEh4KBmFjdGlvbhgEIAEoDjIOLnNlcnZlci5B",
+            "Y3Rpb24iPQoFU3RhdGUSHAoFY29sb3IYASABKA4yDS5zZXJ2ZXIuQ29sb3IS",
+            "FgoOUmVtYWluaW5nV2FsbHMYAiABKAUiSgoKU0dhbWVTdGF0ZRIeCgd3aW5u",
+            "aW5nGAEgASgOMg0uc2VydmVyLkNvbG9yEhwKBXN0YXRlGAIgAygLMg0uc2Vy",
+            "dmVyLlN0YXRlIhoKBkNMb2dJbhIQCghwYXNzd29yZBgBIAEoCSIoCghTQ29u",
+            "ZmlybRIcCgVjb2xvchgBIAEoDjINLnNlcnZlci5Db2xvciJYCg9DV3JhcHBl",
+            "ck1lc3NhZ2USHwoFbG9nSW4YASABKAsyDi5zZXJ2ZXIuQ0xvZ0luSAASHQoE",
+            "bW92ZRgCIAEoCzINLnNlcnZlci5DTW92ZUgAQgUKA21zZyKFAQoPU1dyYXBw",
+            "ZXJNZXNzYWdlEicKCWdhbWVTdGF0ZRgBIAEoCzISLnNlcnZlci5TR2FtZVN0",
+            "YXRlSAASIwoHY29uZmlybRgCIAEoCzIQLnNlcnZlci5TQ29uZmlybUgAEh0K",
+            "BG1vdmUYAyABKAsyDS5zZXJ2ZXIuU01vdmVIAEIFCgNtc2cqJgoFQ29sb3IS",
+            "CQoFV2hpdGUQABIHCgNSZWQQARIJCgVHcmVlbhACKhwKBkFjdGlvbhIICgRN",
+            "b3ZlEAASCAoEV2FsbBABQgmqAgZTZXJ2ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Server.Color), typeof(global::Server.Action), }, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::Server.Coords), global::Server.Coords.Parser, new[]{ "Top", "Left" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Server.CMove), global::Server.CMove.Parser, new[]{ "Coords", "IsVertical", "Action", "Password" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Server.SMove), global::Server.SMove.Parser, new[]{ "Color", "Coords", "IsVertical", "Action" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Server.State), global::Server.State.Parser, new[]{ "Coords", "Color" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Server.SMove), global::Server.SMove.Parser, new[]{ "Color", "Coords", "Action" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Server.State), global::Server.State.Parser, new[]{ "Color", "RemainingWalls" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Server.SGameState), global::Server.SGameState.Parser, new[]{ "Winning", "State" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Server.CLogIn), global::Server.CLogIn.Parser, new[]{ "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Server.SConfirm), global::Server.SConfirm.Parser, new[]{ "Color" }, null, null, null, null),
@@ -646,7 +645,6 @@ namespace Server {
     public SMove(SMove other) : this() {
       color_ = other.color_;
       coords_ = other.coords_ != null ? other.coords_.Clone() : null;
-      isVertical_ = other.isVertical_;
       action_ = other.action_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -681,18 +679,6 @@ namespace Server {
       }
     }
 
-    /// <summary>Field number for the "IsVertical" field.</summary>
-    public const int IsVerticalFieldNumber = 3;
-    private bool isVertical_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public bool IsVertical {
-      get { return isVertical_; }
-      set {
-        isVertical_ = value;
-      }
-    }
-
     /// <summary>Field number for the "action" field.</summary>
     public const int ActionFieldNumber = 4;
     private global::Server.Action action_ = global::Server.Action.Move;
@@ -722,7 +708,6 @@ namespace Server {
       }
       if (Color != other.Color) return false;
       if (!object.Equals(Coords, other.Coords)) return false;
-      if (IsVertical != other.IsVertical) return false;
       if (Action != other.Action) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -733,7 +718,6 @@ namespace Server {
       int hash = 1;
       if (Color != global::Server.Color.White) hash ^= Color.GetHashCode();
       if (coords_ != null) hash ^= Coords.GetHashCode();
-      if (IsVertical != false) hash ^= IsVertical.GetHashCode();
       if (Action != global::Server.Action.Move) hash ^= Action.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -761,10 +745,6 @@ namespace Server {
         output.WriteRawTag(18);
         output.WriteMessage(Coords);
       }
-      if (IsVertical != false) {
-        output.WriteRawTag(24);
-        output.WriteBool(IsVertical);
-      }
       if (Action != global::Server.Action.Move) {
         output.WriteRawTag(32);
         output.WriteEnum((int) Action);
@@ -787,10 +767,6 @@ namespace Server {
         output.WriteRawTag(18);
         output.WriteMessage(Coords);
       }
-      if (IsVertical != false) {
-        output.WriteRawTag(24);
-        output.WriteBool(IsVertical);
-      }
       if (Action != global::Server.Action.Move) {
         output.WriteRawTag(32);
         output.WriteEnum((int) Action);
@@ -810,9 +786,6 @@ namespace Server {
       }
       if (coords_ != null) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Coords);
-      }
-      if (IsVertical != false) {
-        size += 1 + 1;
       }
       if (Action != global::Server.Action.Move) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Action);
@@ -837,9 +810,6 @@ namespace Server {
           Coords = new global::Server.Coords();
         }
         Coords.MergeFrom(other.Coords);
-      }
-      if (other.IsVertical != false) {
-        IsVertical = other.IsVertical;
       }
       if (other.Action != global::Server.Action.Move) {
         Action = other.Action;
@@ -870,10 +840,6 @@ namespace Server {
             input.ReadMessage(Coords);
             break;
           }
-          case 24: {
-            IsVertical = input.ReadBool();
-            break;
-          }
           case 32: {
             Action = (global::Server.Action) input.ReadEnum();
             break;
@@ -902,10 +868,6 @@ namespace Server {
               Coords = new global::Server.Coords();
             }
             input.ReadMessage(Coords);
-            break;
-          }
-          case 24: {
-            IsVertical = input.ReadBool();
             break;
           }
           case 32: {
@@ -953,8 +915,8 @@ namespace Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public State(State other) : this() {
-      coords_ = other.coords_ != null ? other.coords_.Clone() : null;
       color_ = other.color_;
+      remainingWalls_ = other.remainingWalls_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -964,20 +926,8 @@ namespace Server {
       return new State(this);
     }
 
-    /// <summary>Field number for the "coords" field.</summary>
-    public const int CoordsFieldNumber = 1;
-    private global::Server.Coords coords_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-    public global::Server.Coords Coords {
-      get { return coords_; }
-      set {
-        coords_ = value;
-      }
-    }
-
     /// <summary>Field number for the "color" field.</summary>
-    public const int ColorFieldNumber = 2;
+    public const int ColorFieldNumber = 1;
     private global::Server.Color color_ = global::Server.Color.White;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -985,6 +935,18 @@ namespace Server {
       get { return color_; }
       set {
         color_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RemainingWalls" field.</summary>
+    public const int RemainingWallsFieldNumber = 2;
+    private int remainingWalls_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int RemainingWalls {
+      get { return remainingWalls_; }
+      set {
+        remainingWalls_ = value;
       }
     }
 
@@ -1003,8 +965,8 @@ namespace Server {
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (!object.Equals(Coords, other.Coords)) return false;
       if (Color != other.Color) return false;
+      if (RemainingWalls != other.RemainingWalls) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -1012,8 +974,8 @@ namespace Server {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public override int GetHashCode() {
       int hash = 1;
-      if (coords_ != null) hash ^= Coords.GetHashCode();
       if (Color != global::Server.Color.White) hash ^= Color.GetHashCode();
+      if (RemainingWalls != 0) hash ^= RemainingWalls.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -1032,13 +994,13 @@ namespace Server {
     #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       output.WriteRawMessage(this);
     #else
-      if (coords_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Coords);
-      }
       if (Color != global::Server.Color.White) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(8);
         output.WriteEnum((int) Color);
+      }
+      if (RemainingWalls != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(RemainingWalls);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -1050,13 +1012,13 @@ namespace Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (coords_ != null) {
-        output.WriteRawTag(10);
-        output.WriteMessage(Coords);
-      }
       if (Color != global::Server.Color.White) {
-        output.WriteRawTag(16);
+        output.WriteRawTag(8);
         output.WriteEnum((int) Color);
+      }
+      if (RemainingWalls != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(RemainingWalls);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -1068,11 +1030,11 @@ namespace Server {
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public int CalculateSize() {
       int size = 0;
-      if (coords_ != null) {
-        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Coords);
-      }
       if (Color != global::Server.Color.White) {
         size += 1 + pb::CodedOutputStream.ComputeEnumSize((int) Color);
+      }
+      if (RemainingWalls != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RemainingWalls);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1086,14 +1048,11 @@ namespace Server {
       if (other == null) {
         return;
       }
-      if (other.coords_ != null) {
-        if (coords_ == null) {
-          Coords = new global::Server.Coords();
-        }
-        Coords.MergeFrom(other.Coords);
-      }
       if (other.Color != global::Server.Color.White) {
         Color = other.Color;
+      }
+      if (other.RemainingWalls != 0) {
+        RemainingWalls = other.RemainingWalls;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1110,15 +1069,12 @@ namespace Server {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 10: {
-            if (coords_ == null) {
-              Coords = new global::Server.Coords();
-            }
-            input.ReadMessage(Coords);
+          case 8: {
+            Color = (global::Server.Color) input.ReadEnum();
             break;
           }
           case 16: {
-            Color = (global::Server.Color) input.ReadEnum();
+            RemainingWalls = input.ReadInt32();
             break;
           }
         }
@@ -1136,15 +1092,12 @@ namespace Server {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
-          case 10: {
-            if (coords_ == null) {
-              Coords = new global::Server.Coords();
-            }
-            input.ReadMessage(Coords);
+          case 8: {
+            Color = (global::Server.Color) input.ReadEnum();
             break;
           }
           case 16: {
-            Color = (global::Server.Color) input.ReadEnum();
+            RemainingWalls = input.ReadInt32();
             break;
           }
         }

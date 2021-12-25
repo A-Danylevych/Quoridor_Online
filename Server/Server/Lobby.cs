@@ -1,12 +1,11 @@
-﻿using System.Net;
-using Model;
+﻿using Model;
 
 namespace Server
 {
     public class Lobby : IViewer
     {
-        private Client _redPlayer;
-        private Client _greenPlayer;
+        public Client RedPlayer { get; private set; }
+        public Client GreenPlayer { get; private set; }
         private bool _waitForPlayer;
         private readonly Game _game;
         private SWrapperMessage _message;
@@ -18,16 +17,16 @@ namespace Server
 
         public bool ContainsPlayer(string password)
         {
-            return _redPlayer.Password == password || _greenPlayer.Password == password;
+            return RedPlayer.Password == password || GreenPlayer.Password == password;
         }
 
         public bool MakeMove(CMove move)
         {
-            if (_redPlayer.Password == move.Password)
+            if (RedPlayer.Password == move.Password)
             {
                 return ChooseMove(move);
             }
-            return _greenPlayer.Password == move.Password && ChooseMove(move);
+            return GreenPlayer.Password == move.Password && ChooseMove(move);
         }
 
         private bool ChooseMove(CMove move)
@@ -37,6 +36,17 @@ namespace Server
                 : _game.PlaceWall(new Wall(new CellCoords(move.Coords.Top, move.Coords.Left), move.IsVertical));
         }
 
+        public void StartGame()
+        {
+            _message = new SWrapperMessage
+            {
+                GameState = new SGameState()
+                {
+                    Winning = Color.White,
+                }
+            };
+        }
+
         public bool IsWaiting()
         {
             return _waitForPlayer;
@@ -44,14 +54,14 @@ namespace Server
 
         public void SetRedPlayer(Client client)
         {
-            _redPlayer = client;
+            RedPlayer = client;
             _waitForPlayer = false;
         }
 
-        public void SetGreenPlayer(Client client)
+        private void SetGreenPlayer(Client client)
         {
             _waitForPlayer = true;
-            _greenPlayer = client;
+            GreenPlayer = client;
         }
         
 
@@ -123,7 +133,23 @@ namespace Server
 
         public void RenderRemainingWalls(int topCount, int bottomCount)
         {
-            throw new System.NotImplementedException();
+            _message = new SWrapperMessage()
+            {
+                GameState = new SGameState()
+                {
+                    Winning = Color.White,
+                    State = 
+                    {
+                        new State(){Color = Color.Green, RemainingWalls = topCount},
+                        new State(){Color = Color.Red, RemainingWalls = bottomCount}
+                    }
+                }
+            };
+        }
+
+        public SWrapperMessage GetMessage()
+        {
+            return _message;
         }
     }
 }

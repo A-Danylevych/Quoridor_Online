@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Sockets;
-using System.Text;
 using System.Threading.Tasks;
+using Google.Protobuf;
 
 namespace Server
 {
@@ -16,7 +16,7 @@ namespace Server
             
         }
 
-        public Server(IPEndPoint endPoint)
+        private Server(IPEndPoint endPoint)
         {
             _client = new UdpClient(endPoint);
             _lobbies = Lobbies.GetInstance();
@@ -32,17 +32,34 @@ namespace Server
             }
 
             {
-                var client = new Client();
-                client.Password = client.Password;
+                var client = new Client
+                {
+                    Password = message.LogIn.Password
+                };
                 client.EndPoint = client.EndPoint;
-                _lobbies.FindGame(client);
+                client = _lobbies.FindGame(client);
+                var responseMessage = new SWrapperMessage()
+                {
+                    Confirm = new SConfirm()
+                    {
+                        Color = client.Color,
+                    }
+                };
+                await _client.SendAsync(responseMessage.ToByteArray(), responseMessage.ToByteArray().Length,
+                    result.RemoteEndPoint);
             }
         }
 
 
-        public void Reply(string message,IPEndPoint endpoint)
+        public void Reply()
         {
-            
+            var dict = _lobbies.GetMessages();
+            foreach (var (lobby, message) in dict)
+            {
+                var data = message.ToByteArray();
+                _client.Send(data, data.Length, lobby.GreenPlayer.EndPoint);
+                _client.Send(data, data.Length, lobby.RedPlayer.EndPoint);
+            } 
         }
     }
 }

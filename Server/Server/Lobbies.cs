@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System;
 using System.Linq;
 
 namespace Server
@@ -24,22 +23,35 @@ namespace Server
             return _instance;
         }
 
-        public void FindGame(Client client)
+        public Client FindGame(Client client)
         {
             foreach (var game in _games.Where(game => game.IsWaiting()))
             {
                 client.Color = Color.Red;
                 game.SetRedPlayer(client);
-                return;
+                game.StartGame();
+                return client;
             }
 
             client.Color = Color.Green;
             _games.Add(new Lobby(client));
+            return client;
         }
 
         public bool MakeTurn(CMove move)
         {
             return _games.Where(game => game.ContainsPlayer(move.Password)).Select(game => game.MakeMove(move)).FirstOrDefault();
+        }
+        
+        public Dictionary<Lobby, SWrapperMessage> GetMessages()
+        {
+            var dict = new Dictionary<Lobby, SWrapperMessage>();
+            foreach (var game in _games)
+            {
+                dict[game] = game.GetMessage();
+            }
+
+            return dict;
         }
     }
 }

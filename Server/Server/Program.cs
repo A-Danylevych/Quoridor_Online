@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using System;
 
 namespace Server
 {
@@ -11,9 +12,16 @@ namespace Server
             Task.Factory.StartNew(async () => {
                 while (true)
                 {
-                    
+                    await server.Receive();
+                    server.Reply();
                 }
             });
+            
+            string read;
+            do
+            {
+                read = Console.ReadLine();
+            } while (read != "quit");
             
             
         }

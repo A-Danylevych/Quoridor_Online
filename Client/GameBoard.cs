@@ -14,7 +14,7 @@ namespace Quoridor
         private UserInterface Form;
         bool isGameOver;
 
-        public GameBoard(UserInterface form, Model.Color color)  //запускає дії в формі
+        public GameBoard(UserInterface form)  //запускає дії в формі
         {
             Form = form;
             Controller = new Controller.Controller();
@@ -138,7 +138,7 @@ namespace Quoridor
 
             isGameOver = false;
 
-            Game.NewGame();
+            Game.NewGame(false);
             ClearWalls();
             RenderBottomPlayer(625, 325);
             RenderUpperPlayer(25, 325);
