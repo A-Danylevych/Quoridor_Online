@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserInterface));
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
@@ -42,27 +41,11 @@
             this.label1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(180, 155);
+            this.label1.Location = new System.Drawing.Point(258, 142);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(358, 39);
+            this.label1.Size = new System.Drawing.Size(164, 39);
             this.label1.TabIndex = 0;
-            this.label1.Text = "С кем хотите играть?";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.ForeColor = System.Drawing.Color.LightSkyBlue;
-            this.button1.Location = new System.Drawing.Point(92, 362);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(220, 48);
-            this.button1.TabIndex = 1;
-            this.button1.Tag = "button";
-            this.button1.Text = "Играть с Ботом";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.label1.Text = "Играть ?!";
             // 
             // button2
             // 
@@ -71,12 +54,12 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button2.ForeColor = System.Drawing.Color.LightSkyBlue;
-            this.button2.Location = new System.Drawing.Point(327, 362);
+            this.button2.Location = new System.Drawing.Point(205, 338);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(289, 48);
             this.button2.TabIndex = 2;
             this.button2.Tag = "button";
-            this.button2.Text = "Играть с человеком";
+            this.button2.Text = "ДАааа";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
@@ -85,7 +68,6 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(700, 702);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "UserInterface";
             this.Text = "UserInterface";
@@ -97,7 +79,6 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Timer timer1;
     }
