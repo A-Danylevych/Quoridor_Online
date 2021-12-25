@@ -14,10 +14,10 @@ namespace Quoridor
         private UserInterface Form;
         bool isGameOver;
 
-        public GameBoard(UserInterface form)  //запускає дії в формі
+        public GameBoard(UserInterface form, string password)  //запускає дії в формі
         {
             Form = form;
-            Controller = new Controller.Controller();
+            Controller = new Controller.Controller(password);
             InitializeComponent();
             Game = Game.GetInstance(Controller, this) ;
         }
@@ -129,7 +129,7 @@ namespace Quoridor
             return false;
         }
 
-        public void resetGame()
+        public void resetGame(Color color)
         {
             gameTimer.Start(); 
 
