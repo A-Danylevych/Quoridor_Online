@@ -14,19 +14,17 @@ namespace Quoridor
         private readonly UdpClient _server;
         private IViewer _viewer;
         private UserInterface _interface;
-
-        public Client(UserInterface userInterface, IViewer viewer)
-        {
-            _interface = userInterface;
-            _viewer = viewer;
-            _server = new UdpClient(endPoint);
-        }
-
+        private static Client _instance; 
+        private static readonly object SyncRoot = new object();
+        
         public void SetView(IViewer viewer)
         {
             _viewer = viewer;
         }
-        
+        public void SetInterface(UserInterface @interface)
+        {
+            _interface = @interface;
+        }
 
         public async Task Receive()
         {
@@ -71,6 +69,24 @@ namespace Quoridor
         {
             var data = message.ToByteArray();
             _server.Send(data, data.Length);
+        }
+        private Client()
+        {
+            var endpoint = new IPEndPoint(IPAddress.Parse("  "), ListenPort);
+            
+            _server = new UdpClient(endpoint);
+        }
+        public static Client GetInstance()
+        {
+            if (_instance != null) return _instance;
+            lock (SyncRoot)
+            {
+                if (_instance == null)
+                {
+                    _instance = new Client();
+                }
+            }
+            return _instance;
         }
     }
 }

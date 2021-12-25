@@ -7,9 +7,9 @@ namespace Quoridor.Controller
         private string password;
         private Client client;
 
-        public Controller(string password, Client client)
+        public Controller(string password)
         {
-            this.client = client;
+            client = Client.GetInstance();
             this.password = password;
         }
         public void SetCell(int top, int left)

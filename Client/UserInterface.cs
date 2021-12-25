@@ -2,7 +2,6 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.Linq;
-using System.Security.Cryptography;
 
 namespace Quoridor
 {
@@ -17,7 +16,9 @@ namespace Quoridor
             InitializeComponent();
             password = RandomString(10);
             Form = new GameBoard(this, password);
-            _client = new Client(this, Form);
+            _client = Client.GetInstance();
+            _client.SetInterface(this);
+            _client.SetView(Form);
         }
 
         public UserInterface(string password)
@@ -25,7 +26,9 @@ namespace Quoridor
             this.password = password;
             InitializeComponent();
             Form = new GameBoard(this, password);
-            _client = new Client(this, Form);
+            _client = Client.GetInstance();
+            _client.SetInterface(this);
+            _client.SetView(Form);
         }
 
         public static string RandomString(int length)
@@ -61,7 +64,7 @@ namespace Quoridor
                     var color = x.BackColor;
                     x.MouseHover += (a_sender, a_args) =>
                     {
-                        x.BackColor = Color.Lavender;
+                        x.BackColor = System.Drawing.Color.Lavender;
                     };
 
                     x.MouseLeave += (a_sender, a_args) =>

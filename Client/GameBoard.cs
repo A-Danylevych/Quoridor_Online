@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using Model;
-using Color = System.Drawing.Color;
 
 namespace Quoridor
 {
@@ -10,16 +9,16 @@ namespace Quoridor
     public partial class GameBoard : Form, IViewer
     {
         Controller.Controller Controller { get; set; }
-        Game Game;
         private UserInterface Form;
-        bool isGameOver;
+        private bool _isGameOver;
+        
 
         public GameBoard(UserInterface form, string password)  //запускає дії в формі
         {
             Form = form;
             Controller = new Controller.Controller(password);
             InitializeComponent();
-            Game = Game.GetInstance(Controller, this) ;
+
         }
 
         private void keyisdown(object sender, KeyEventArgs e)
@@ -39,48 +38,36 @@ namespace Quoridor
         {
             foreach (Control x in this.Controls)
             {
-                if ((string)x.Tag == "Wall" && !TouchingOther(x.Top, x.Left))
+                if ((string) x.Tag == "Wall" && !TouchingOther(x.Top, x.Left))
                 {
                     x.MouseClick += (a_sender, a_args) =>
                     {
-                        Controller.SetAction(Model.Action.PlaceWall);
                         Controller.SetWall(x.Top, x.Left, IsVertical(x.Top, x.Left));
-                        Game.Update();
                     };
                     x.MouseHover += (a_sender, a_args) =>
                     {
-                        if (x.BackColor != Color.LightSlateGray && !TouchingOther(x.Top, x.Left))
+                        if (x.BackColor != System.Drawing.Color.LightSlateGray && !TouchingOther(x.Top, x.Left))
                         {
-                            RenderWall(x.Top, x.Left, Color.LightSteelBlue);
+                            RenderWall(x.Top, x.Left, System.Drawing.Color.LightSteelBlue);
                         }
 
                     };
-                    x.MouseLeave += (a_sender, a_args) =>  
+                    x.MouseLeave += (a_sender, a_args) =>
                     {
-                        if (x.BackColor != Color.LightSlateGray) 
+                        if (x.BackColor != System.Drawing.Color.LightSlateGray)
                         {
-                            RenderWall(x.Top, x.Left, Color.LightSkyBlue);
+                            RenderWall(x.Top, x.Left, System.Drawing.Color.LightSkyBlue);
                             x.SendToBack();
                         }
                     };
-
-
                 }
 
-                if ((string)x.Tag == "Cell") 
+                if ((string) x.Tag == "Cell")
                 {
-                    x.MouseClick += (a_sender, a_args) =>
-                    {
-                        Controller.SetAction(Model.Action.MakeMove);
-                        Controller.SetCell(x.Top, x.Left);
-                        Game.Update();
-                    };
+                    x.MouseClick += (a_sender, a_args) => { Controller.SetCell(x.Top, x.Left); };
 
                 }
-
             }
-
-
         }
 
         private bool TouchingOther(int top, int left)
@@ -92,7 +79,7 @@ namespace Quoridor
                 {
                     if (w.Left == left && (w.Top == top-75 || w.Top == top+75))
                     {
-                        if (w.BackColor == Color.LightSlateGray)
+                        if (w.BackColor == System.Drawing.Color.LightSlateGray)
                         {
                             return true;
                         }
@@ -100,7 +87,7 @@ namespace Quoridor
 
                     if (w.Top == top + 50 && w.Left == left - 50)
                     {
-                        if (w.BackColor == Color.LightSlateGray)
+                        if (w.BackColor == System.Drawing.Color.LightSlateGray)
                         {
                             return true;
                         }
@@ -110,7 +97,7 @@ namespace Quoridor
                 {
                     if (w.Top == top && (w.Left == left-75 || w.Left == left+75))
                     {
-                        if (w.BackColor == Color.LightSlateGray)
+                        if (w.BackColor == System.Drawing.Color.LightSlateGray)
                         {
                             return true;
                         }
@@ -118,7 +105,7 @@ namespace Quoridor
 
                     if (w.Top == top - 50 && w.Left == left + 50)
                     {
-                        if (w.BackColor == Color.LightSlateGray)
+                        if (w.BackColor == System.Drawing.Color.LightSlateGray)
                         {
                             return true;
                         }
@@ -136,9 +123,8 @@ namespace Quoridor
             label1.Text = "Залишилось стін: 10";
             label2.Text = "Залишилось стін: 10";
 
-            isGameOver = false;
-
-            Game.NewGame(false);
+            _isGameOver = false;
+            
             ClearWalls();
             RenderBottomPlayer(625, 325);
             RenderUpperPlayer(25, 325);
@@ -151,14 +137,14 @@ namespace Quoridor
         {
             foreach (var wall in WallsList())
             {
-                wall.BackColor = Color.LightSkyBlue;
+                wall.BackColor = System.Drawing.Color.LightSkyBlue;
                 wall.SendToBack();
             }
         }
 
         private void gameOver(string message)
         {
-            isGameOver = true;
+            _isGameOver = true;
 
             gameTimer.Stop();
 
@@ -201,7 +187,7 @@ namespace Quoridor
         
         public void RenderWall(int top, int left)
         {
-            RenderWall(top, left, Color.LightSlateGray);
+            RenderWall(top, left, System.Drawing.Color.LightSlateGray);
         }
 
         public List<PictureBox> WallsList()
@@ -449,7 +435,7 @@ namespace Quoridor
             return Walls;
         }
 
-        private void RenderWall(int top, int left, Color color)
+        private void RenderWall(int top, int left, System.Drawing.Color color)
         {
             foreach (var v in WallsList())
                 if (v.Top == top && v.Left == left)
