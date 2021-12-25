@@ -1,23 +1,18 @@
-﻿using System;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
+﻿using System.Net;
 
 namespace Server
 {
-    public class Client
+    public struct Client
     {
-        private readonly UdpClient _client;
-        
-        public Client(UdpClient client)
+        public IPEndPoint EndPoint;
+        public Color Color;
+        public string Password;
+
+        public Client(IPEndPoint point, Color color, string password)
         {
-            _client = client;
-        }
-        
-        public void Send(string message)
-        {
-            var datagram = Encoding.ASCII.GetBytes(message);
-            _client.Send(datagram, datagram.Length);
+            EndPoint = point;
+            Color = color;
+            Password = password;
         }
     }
 }

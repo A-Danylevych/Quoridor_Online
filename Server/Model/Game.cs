@@ -80,7 +80,7 @@ namespace Model
             return true;
         }
 
-        public bool PlayceWall(Wall wall)
+        public bool PlaceWall(Wall wall)
         {
             if (!_board.CanBePlaced(wall) || !_currentPlayer.PlaceWall()) return false;
             _board.PutWall(wall);
