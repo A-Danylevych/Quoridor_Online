@@ -11,7 +11,8 @@ namespace Server
             Task.Factory.StartNew(async () => {
                 while (true)
                 {
-                    
+                    await server.Receive();
+                    await server.Reply();
                 }
             });
             

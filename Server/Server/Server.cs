@@ -1,7 +1,9 @@
 ﻿using System.Net;
 using System.Net.Sockets;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Google.Protobuf;
 
 namespace Server
 {
@@ -40,9 +42,15 @@ namespace Server
         }
 
 
-        public void Reply(string message,IPEndPoint endpoint)
+        public async Task Reply()
         {
-            
+            var dict = _lobbies.GetMessages();
+            foreach (var (lobby, message) in dict)
+            {
+                var data = message.ToByteArray();
+                await _client.SendAsync(data, data.Length, lobby.GreenPlayer.EndPoint);
+                await _client.SendAsync(data, data.Length, lobby.RedPlayer.EndPoint);
+            } 
         }
     }
 }

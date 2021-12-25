@@ -30,6 +30,7 @@ namespace Server
             {
                 client.Color = Color.Red;
                 game.SetRedPlayer(client);
+                game.StartGame();
                 return;
             }
 
@@ -40,6 +41,17 @@ namespace Server
         public bool MakeTurn(CMove move)
         {
             return _games.Where(game => game.ContainsPlayer(move.Password)).Select(game => game.MakeMove(move)).FirstOrDefault();
+        }
+        
+        public Dictionary<Lobby, SWrapperMessage> GetMessages()
+        {
+            var dict = new Dictionary<Lobby, SWrapperMessage>();
+            foreach (var game in _games)
+            {
+                dict[game] = game.GetMessage();
+            }
+
+            return dict;
         }
     }
 }
