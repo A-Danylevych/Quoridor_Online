@@ -4,7 +4,7 @@ namespace Model
 {
     public interface IViewer
     {
-        void RenderEnding(string message);
+        void RenderEnding(Color color);
         void RenderUpperPlayer(int top, int left);
         void RenderBottomPlayer(int top, int left);
         void RenderWall(int top, int left);
