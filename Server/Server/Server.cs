@@ -1,5 +1,4 @@
-﻿using System;
-using System.Net;
+﻿using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using Google.Protobuf;
@@ -17,7 +16,7 @@ namespace Server
             
         }
 
-        public Server(IPEndPoint endPoint)
+        private Server(IPEndPoint endPoint)
         {
             _client = new UdpClient(endPoint);
             _lobbies = Lobbies.GetInstance();
@@ -33,8 +32,10 @@ namespace Server
             }
 
             {
-                var client = new Client();
-                client.Password = message.LogIn.Password;
+                var client = new Client
+                {
+                    Password = message.LogIn.Password
+                };
                 client.EndPoint = client.EndPoint;
                 _lobbies.FindGame(client);
             }
