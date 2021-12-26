@@ -1,9 +1,11 @@
+using System;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using Google.Protobuf;
 using Model;
+using Microsoft.Extensions.Configuration;
 
 
 namespace Quoridor
@@ -72,7 +74,10 @@ namespace Quoridor
         }
         private Client()
         {
-            var endpoint = new IPEndPoint(IPAddress.Parse("  "), ListenPort);
+            var config = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("configuration.json").Build();
+            string connection = config.GetConnectionString("DefaultConnection");
+            var endpoint = new IPEndPoint(IPAddress.Parse(connection), ListenPort);
             
             _server = new UdpClient(endpoint);
         }
