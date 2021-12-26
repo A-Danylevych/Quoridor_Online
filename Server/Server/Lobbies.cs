@@ -38,6 +38,14 @@ namespace Server
             return client;
         }
 
+        public void CloseFinished()
+        {
+            foreach (var lobby in _games.Where(lobby => !lobby.InGame))
+            {
+                _games.Remove(lobby);
+            }
+        }
+
         public bool MakeTurn(CMove move)
         {
             return _games.Where(game => game.ContainsPlayer(move.Password)).Select(game => game.MakeMove(move)).FirstOrDefault();

@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 using Google.Protobuf;
@@ -28,26 +29,27 @@ namespace Server
             var message = CWrapperMessage.Parser.ParseFrom(result.Buffer);
             if (message.MsgCase == CWrapperMessage.MsgOneofCase.Move)
             {
+                Console.WriteLine(message);
                 _lobbies.MakeTurn(message.Move);
             }
 
+            
+            var client = new Client
             {
-                var client = new Client
+                Password = message.LogIn.Password
+            };
+            client.EndPoint = client.EndPoint;
+            client = _lobbies.FindGame(client);
+            var responseMessage = new SWrapperMessage()
+            {
+                Confirm = new SConfirm()
                 {
-                    Password = message.LogIn.Password
-                };
-                client.EndPoint = client.EndPoint;
-                client = _lobbies.FindGame(client);
-                var responseMessage = new SWrapperMessage()
-                {
-                    Confirm = new SConfirm()
-                    {
-                        Color = client.Color,
-                    }
-                };
-                await _client.SendAsync(responseMessage.ToByteArray(), responseMessage.ToByteArray().Length,
-                    result.RemoteEndPoint);
-            }
+                    Color = client.Color,
+                }
+            };
+            await _client.SendAsync(responseMessage.ToByteArray(), responseMessage.ToByteArray().Length,
+                result.RemoteEndPoint);
+            
         }
 
 

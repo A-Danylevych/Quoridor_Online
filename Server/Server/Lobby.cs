@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using System.Runtime.CompilerServices;
+using Model;
 
 namespace Server
 {
@@ -9,10 +10,12 @@ namespace Server
         private bool _waitForPlayer;
         private readonly Game _game;
         private SWrapperMessage _message;
+        public bool InGame;
         public Lobby(Client client)
         {
             SetGreenPlayer(client);
             _game = new Game(false, this);
+            InGame = true;
         }
 
         public bool ContainsPlayer(string password)
@@ -79,6 +82,7 @@ namespace Server
                     Winning = winColor,
                 },
             };
+            InGame = false;
         }
 
         public void RenderUpperPlayer(int top, int left)
