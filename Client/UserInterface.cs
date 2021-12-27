@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Linq;
-using Windows.ApplicationModel.Core;
 
 namespace Quoridor
 {

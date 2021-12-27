@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31702.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quoridor 1.0", "Quoridor 1.0.csproj", "{723743B5-BC78-4354-B6E2-56970719A211}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quoridor", "Quoridor.csproj", "{7C7A0D46-A5AB-4B48-A51A-BAD19795E125}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{723743B5-BC78-4354-B6E2-56970719A211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{723743B5-BC78-4354-B6E2-56970719A211}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{723743B5-BC78-4354-B6E2-56970719A211}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{723743B5-BC78-4354-B6E2-56970719A211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C7A0D46-A5AB-4B48-A51A-BAD19795E125}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C7A0D46-A5AB-4B48-A51A-BAD19795E125}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C7A0D46-A5AB-4B48-A51A-BAD19795E125}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C7A0D46-A5AB-4B48-A51A-BAD19795E125}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {3AC09388-DCE7-4927-B9D8-72E0759435DC}
+		SolutionGuid = {FBA39EFE-4E78-4A0A-9B6D-411B296CE780}
 	EndGlobalSection
 EndGlobal
