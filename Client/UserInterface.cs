@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Drawing;
 using System.Windows.Forms;
 using System.Linq;
 
@@ -7,32 +6,22 @@ namespace Quoridor
 {
     public partial class UserInterface : Form
     {
-        private GameBoard Form;
-        private Client _client;
-        private string password;
+        private readonly GameBoard _gameBoard;
+        private readonly Client _client;
+        private readonly string _password;
         
         public UserInterface()
         {
             InitializeComponent();
-            password = RandomString(10);
-            Form = new GameBoard(this, password);
+            _password = RandomString(10);
+            _gameBoard = new GameBoard(this, _password);
             _client = Client.GetInstance();
             _client.SetInterface(this);
-            _client.SetView(Form);
+            _client.SetView(_gameBoard);
             _client.Receive();
         }
 
-        public UserInterface(string password)
-        {
-            this.password = password;
-            InitializeComponent();
-            Form = new GameBoard(this, password);
-            _client = Client.GetInstance();
-            _client.SetInterface(this);
-            _client.SetView(Form);
-        }
-
-        public static string RandomString(int length)
+        private static string RandomString(int length)
         {
             var random = new Random();
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
@@ -44,31 +33,31 @@ namespace Quoridor
         {
             Hide();
 
-            Form.resetGame(color);
+            _gameBoard.ResetGame(color);
             
-            Form.Show();
+            _gameBoard.Show();
 
         }
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            var message = new CWrapperMessage { LogIn = new CLogIn { Password = password } };
+            var message = new CWrapperMessage { LogIn = new CLogIn { Password = _password } };
             _client.SendMessage(message);
         }
 
-        private void mainGameTimer(object sender, EventArgs e)
+        private void MainGameTimer(object sender, EventArgs e)
         {
             foreach (Control x in this.Controls)
             {
                 if ((string)x.Tag == "button")
                 {
                     var color = x.BackColor;
-                    x.MouseHover += (a_sender, a_args) =>
+                    x.MouseHover += (aSender, aArgs) =>
                     {
                         x.BackColor = System.Drawing.Color.Lavender;
                     };
 
-                    x.MouseLeave += (a_sender, a_args) =>
+                    x.MouseLeave += (aSender, aArgs) =>
                     {
                         x.BackColor = color;
                     };

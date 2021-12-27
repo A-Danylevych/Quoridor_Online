@@ -521,7 +521,7 @@ namespace Quoridor
             // gameTimer
             // 
             this.gameTimer.Interval = 20;
-            this.gameTimer.Tick += new System.EventHandler(this.mainGameTimer);
+            this.gameTimer.Tick += new System.EventHandler(this.MainGameTimer);
             // 
             // pictureBox4
             // 
@@ -2260,7 +2260,7 @@ namespace Quoridor
             this.pictureBox161.TabIndex = 46;
             this.pictureBox161.TabStop = false;
             this.pictureBox161.Tag = "Wall";
-            this.pictureBox161.BackColorChanged += new System.EventHandler(this.mainGameTimer);
+            this.pictureBox161.BackColorChanged += new System.EventHandler(this.MainGameTimer);
             // 
             // pictureBox162
             // 
@@ -3305,7 +3305,7 @@ namespace Quoridor
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quoridor";
             this.TopMost = true;
-            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyisup);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.KeyIsUp);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
