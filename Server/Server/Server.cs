@@ -27,40 +27,50 @@ namespace Server
         {
             var result = await _client.ReceiveAsync();
             var message = CWrapperMessage.Parser.ParseFrom(result.Buffer);
+            Console.WriteLine(message);
             if (message.MsgCase == CWrapperMessage.MsgOneofCase.Move)
             {
-                Console.WriteLine(message);
                 _lobbies.MakeTurn(message.Move);
             }
-
-            
-            var client = new Client
+            else
             {
-                Password = message.LogIn.Password
-            };
-            client.EndPoint = result.RemoteEndPoint;
-            client = _lobbies.FindGame(client);
-            var responseMessage = new SWrapperMessage()
-            {
-                Confirm = new SConfirm()
+                var client = new Client
                 {
-                    Color = client.Color,
-                }
-            };
-            await _client.SendAsync(responseMessage.ToByteArray(), responseMessage.ToByteArray().Length,
-                result.RemoteEndPoint);
+                    Password = message.LogIn.Password,
+                    EndPoint = result.RemoteEndPoint
+                };
+                client = _lobbies.FindGame(client);
+                var responseMessage = new SWrapperMessage()
+                {
+                    Confirm = new SConfirm()
+                    {
+                        Color = client.Color,
+                    }
+                };
+                await _client.SendAsync(responseMessage.ToByteArray(), responseMessage.ToByteArray().Length,
+                    result.RemoteEndPoint);
+            }
+            
             
         }
 
 
-        public void Reply()
+        public async Task Reply()
         {
             var dict = _lobbies.GetMessages();
             foreach (var (lobby, message) in dict)
             {
+                if (message == null)
+                {
+                    continue;
+                }
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(message);
+                Console.ForegroundColor = ConsoleColor.White;
                 var data = message.ToByteArray();
-                _client.Send(data, data.Length, lobby.GreenPlayer.EndPoint);
-                _client.Send(data, data.Length, lobby.RedPlayer.EndPoint);
+                await _client.SendAsync(data, data.Length, lobby.GreenPlayer.EndPoint);
+                await _client.SendAsync(data, data.Length, lobby.RedPlayer.EndPoint);
             } 
         }
     }

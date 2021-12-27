@@ -14,7 +14,7 @@ namespace Server
                 while (true)
                 {
                     await server.Receive();
-                    server.Reply();
+                    await server.Reply();
                     lobbies.CloseFinished();
                 }
             });

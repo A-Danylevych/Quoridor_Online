@@ -30,40 +30,45 @@ namespace Quoridor
 
         public async Task Receive()
         {
-            var result = await _server.ReceiveAsync();
-            var message = SWrapperMessage.Parser.ParseFrom(result.Buffer);
-            switch (message.MsgCase)
+            while (true)
             {
-                case SWrapperMessage.MsgOneofCase.Confirm:
-                    _interface.Close(message.Confirm.Color);
-                    break;
-                case SWrapperMessage.MsgOneofCase.Move when message.Move.Action == Action.Move:
-                {
-                    if (message.Move.Color == Color.Green)
-                    {
-                        _viewer.RenderUpperPlayer(message.Move.Coords.Top, message.Move.Coords.Left);
-                    }
-                    else
-                    {
-                        _viewer.RenderBottomPlayer(message.Move.Coords.Top, message.Move.Coords.Left);
-                    }
 
-                    break;
-                }
-                case SWrapperMessage.MsgOneofCase.Move:
-                    _viewer.RenderWall(message.Move.Coords.Top, message.Move.Coords.Left);
-                    break;
-                case SWrapperMessage.MsgOneofCase.GameState when message.GameState.Winning == Color.Red:
-                    _viewer.RenderEnding(Color.Red.ToString());
-                    break;
-                case SWrapperMessage.MsgOneofCase.GameState:
-                {
-                    if(message.GameState.Winning == Color.Green)
-                    {
-                        _viewer.RenderEnding(Color.Green.ToString());
-                    }
 
-                    break;
+                var result = await _server.ReceiveAsync();
+                var message = SWrapperMessage.Parser.ParseFrom(result.Buffer);
+                switch (message.MsgCase)
+                {
+                    case SWrapperMessage.MsgOneofCase.Confirm:
+                        _interface.Close(message.Confirm.Color);
+                        break;
+                    case SWrapperMessage.MsgOneofCase.Move when message.Move.Action == Action.Move:
+                    {
+                        if (message.Move.Color == Color.Green)
+                        {
+                            _viewer.RenderUpperPlayer(message.Move.Coords.Top, message.Move.Coords.Left);
+                        }
+                        else
+                        {
+                            _viewer.RenderBottomPlayer(message.Move.Coords.Top, message.Move.Coords.Left);
+                        }
+
+                        break;
+                    }
+                    case SWrapperMessage.MsgOneofCase.Move:
+                        _viewer.RenderWall(message.Move.Coords.Top, message.Move.Coords.Left);
+                        break;
+                    case SWrapperMessage.MsgOneofCase.GameState when message.GameState.Winning == Color.Red:
+                        _viewer.RenderEnding(Color.Red.ToString());
+                        break;
+                    case SWrapperMessage.MsgOneofCase.GameState:
+                    {
+                        if (message.GameState.Winning == Color.Green)
+                        {
+                            _viewer.RenderEnding(Color.Green.ToString());
+                        }
+
+                        break;
+                    }
                 }
             }
         }
