@@ -25,6 +25,7 @@ namespace Quoridor
         {
             if (e.KeyCode != Keys.Enter) return;
             Hide();
+            _userInterface.Restart();
             _userInterface.Show();
         }
 
@@ -139,7 +140,7 @@ namespace Quoridor
 
             label1.Left = 250;
 
-            label1.Text = @"     " + message + @"   won!";
+            label1.Text = @"     " + message + @"   won!    Press enter to restart";
 
             label2.Text = null;
         }

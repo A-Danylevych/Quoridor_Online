@@ -25,7 +25,7 @@ namespace Server
 
         public Client FindGame(Client client)
         {
-            foreach (var game in _games.Where(game => game.IsWaiting()))
+            foreach (var game in _games.Where(game => game.IsWaiting() && game.InGame))
             {
                 client.Color = Color.Red;
                 game.SetRedPlayer(client);
@@ -48,15 +48,16 @@ namespace Server
 
         public bool MakeTurn(CMove move)
         {
-            return _games.Where(game => game.ContainsPlayer(move.Password)).Select(game => game.MakeMove(move)).FirstOrDefault();
+            return _games.Where(game => game.ContainsPlayer(move.Password) && 
+                                        game.InGame).Select(game => game.MakeMove(move)).FirstOrDefault();
         }
         
-        public Dictionary<Lobby, SWrapperMessage> GetMessages()
+        public Dictionary<Lobby, ICollection<SWrapperMessage>> GetMessages()
         {
-            var dict = new Dictionary<Lobby, SWrapperMessage>();
+            var dict = new Dictionary<Lobby, ICollection<SWrapperMessage>>();
             foreach (var game in _games)
             {
-                dict[game] = game.GetMessage();
+                dict[game] = game.GetMessages();
             }
 
             return dict;

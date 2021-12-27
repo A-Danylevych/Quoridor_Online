@@ -3,19 +3,16 @@ using System;
 
 namespace Server
 {
-    internal static class Program
+    internal class Program
     {
         private static void Main()
         {
-            var server = new Server();
-            var lobbies = Lobbies.GetInstance();
-            
             Task.Factory.StartNew(async () => {
+                var server = new Server();
                 while (true)
                 {
                     await server.Receive();
                     await server.Reply();
-                    lobbies.CloseFinished();
                 }
             });
             
@@ -24,7 +21,10 @@ namespace Server
             {
                 read = Console.ReadLine();
             } while (read != "quit");
-            
+        }
+
+        private async Task ServerRun()
+        {
             
         }
     }

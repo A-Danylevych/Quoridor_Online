@@ -13,11 +13,12 @@ namespace Quoridor
     public class Client
     {
         private const int ListenPort = 11000;
-        private readonly UdpClient _server;
+        private UdpClient _server;
         private IViewer _viewer;
         private UserInterface _interface;
         private static Client _instance; 
         private static readonly object SyncRoot = new object();
+        private bool _listen;
         
         public void SetView(IViewer viewer)
         {
@@ -28,12 +29,23 @@ namespace Quoridor
             _interface = @interface;
         }
 
+        public void Reconnect()
+        {
+            _listen = false;
+            var config = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+                .AddJsonFile("configuration.json").Build();
+            var connection = config.GetConnectionString("DefaultConnection");
+            var endpoint = new IPEndPoint(IPAddress.Parse(connection), ListenPort);
+            
+            _server = new UdpClient();
+            _server.Connect(endpoint);
+        }
+
         public async Task Receive()
         {
-            while (true)
+            _listen = true;
+            while (_listen)
             {
-
-
                 var result = await _server.ReceiveAsync();
                 var message = SWrapperMessage.Parser.ParseFrom(result.Buffer);
                 switch (message.MsgCase)
@@ -57,9 +69,6 @@ namespace Quoridor
                     case SWrapperMessage.MsgOneofCase.Move:
                         _viewer.RenderWall(message.Move.Coords.Top, message.Move.Coords.Left);
                         break;
-                    case SWrapperMessage.MsgOneofCase.GameState when message.GameState.Winning == Color.Red:
-                        _viewer.RenderEnding(Color.Red.ToString());
-                        break;
                     case SWrapperMessage.MsgOneofCase.GameState:
                     {
                         if (message.GameState.Winning == Color.Green)
@@ -67,8 +76,16 @@ namespace Quoridor
                             _viewer.RenderEnding(Color.Green.ToString());
                         }
 
+                        if (message.GameState.Winning == Color.Red)
+                        {
+                            _viewer.RenderEnding(Color.Red.ToString());
+                        }
+
                         break;
                     }
+                    case SWrapperMessage.MsgOneofCase.Walls:
+                        _viewer.RenderRemainingWalls(message.Walls.GreenWalls, message.Walls.RedWalls);
+                        break;
                 }
             }
         }
@@ -80,13 +97,7 @@ namespace Quoridor
         }
         private Client()
         {
-            var config = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                .AddJsonFile("configuration.json").Build();
-            var connection = config.GetConnectionString("DefaultConnection");
-            var endpoint = new IPEndPoint(IPAddress.Parse(connection), ListenPort);
-            
-            _server = new UdpClient();
-            _server.Connect(endpoint);
+            Reconnect();
         }
         public static Client GetInstance()
         {

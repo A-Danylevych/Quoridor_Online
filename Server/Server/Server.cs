@@ -47,6 +47,9 @@ namespace Server
                         Color = client.Color,
                     }
                 };
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(responseMessage);
+                Console.ForegroundColor = ConsoleColor.White;
                 await _client.SendAsync(responseMessage.ToByteArray(), responseMessage.ToByteArray().Length,
                     result.RemoteEndPoint);
             }
@@ -58,20 +61,31 @@ namespace Server
         public async Task Reply()
         {
             var dict = _lobbies.GetMessages();
-            foreach (var (lobby, message) in dict)
+            foreach (var (lobby, messages) in dict)
             {
-                if (message == null)
+                if (messages == null)
                 {
                     continue;
                 }
 
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(message);
-                Console.ForegroundColor = ConsoleColor.White;
-                var data = message.ToByteArray();
-                await _client.SendAsync(data, data.Length, lobby.GreenPlayer.EndPoint);
-                await _client.SendAsync(data, data.Length, lobby.RedPlayer.EndPoint);
+                foreach (var message in messages)
+                {
+                    if (message == null)
+                    {
+                        continue;
+                    }
+
+        
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(message);
+                    Console.ForegroundColor = ConsoleColor.White;
+                    var data = message.ToByteArray();
+                    await _client.SendAsync(data, data.Length, lobby.GreenPlayer.EndPoint);
+                    await _client.SendAsync(data, data.Length, lobby.RedPlayer.EndPoint);
+                }
+                lobby.ClearMessages();
             } 
+            //_lobbies.CloseFinished();
         }
     }
 }

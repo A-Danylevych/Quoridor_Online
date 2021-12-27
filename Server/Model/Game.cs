@@ -88,6 +88,7 @@ namespace Model
             {
                 var wallCoords = wall.Coords;
                 Viewer.RenderWall(wallCoords.Top, wallCoords.Left);
+                Viewer.RenderRemainingWalls(_topPlayer.WallsCount, _bottomPlayer.WallsCount);
                 ChangeCurrentPlayer();
                 return true;
             }

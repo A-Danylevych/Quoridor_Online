@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Linq;
+using Windows.ApplicationModel.Core;
 
 namespace Quoridor
 {
@@ -29,6 +30,13 @@ namespace Quoridor
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
+        public void Restart()
+        {
+            label1.Text = @"Играть?!";
+            _client.Reconnect();
+            _client.Receive();
+        }
+
         public void Close(Color color)
         {
             Hide();
@@ -50,20 +58,17 @@ namespace Quoridor
         {
             foreach (Control x in this.Controls)
             {
-                if ((string)x.Tag == "button")
+                if ((string) x.Tag != "button") continue;
+                var color = x.BackColor;
+                x.MouseHover += (aSender, aArgs) =>
                 {
-                    var color = x.BackColor;
-                    x.MouseHover += (aSender, aArgs) =>
-                    {
-                        x.BackColor = System.Drawing.Color.Lavender;
-                    };
+                    x.BackColor = System.Drawing.Color.Lavender;
+                };
 
-                    x.MouseLeave += (aSender, aArgs) =>
-                    {
-                        x.BackColor = color;
-                    };
-
-                }
+                x.MouseLeave += (aSender, aArgs) =>
+                {
+                    x.BackColor = color;
+                };
             }
         }
     }

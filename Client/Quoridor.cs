@@ -33,16 +33,18 @@ namespace Quoridor {
             "EC5xdW9yaWRvci5BY3Rpb24iPwoFU3RhdGUSHgoFY29sb3IYASABKA4yDy5x",
             "dW9yaWRvci5Db2xvchIWCg5SZW1haW5pbmdXYWxscxgCIAEoBSJOCgpTR2Ft",
             "ZVN0YXRlEiAKB3dpbm5pbmcYASABKA4yDy5xdW9yaWRvci5Db2xvchIeCgVz",
-            "dGF0ZRgCIAMoCzIPLnF1b3JpZG9yLlN0YXRlIhoKBkNMb2dJbhIQCghwYXNz",
-            "d29yZBgBIAEoCSIqCghTQ29uZmlybRIeCgVjb2xvchgBIAEoDjIPLnF1b3Jp",
-            "ZG9yLkNvbG9yIlwKD0NXcmFwcGVyTWVzc2FnZRIhCgVsb2dJbhgBIAEoCzIQ",
-            "LnF1b3JpZG9yLkNMb2dJbkgAEh8KBG1vdmUYAiABKAsyDy5xdW9yaWRvci5D",
-            "TW92ZUgAQgUKA21zZyKLAQoPU1dyYXBwZXJNZXNzYWdlEikKCWdhbWVTdGF0",
-            "ZRgBIAEoCzIULnF1b3JpZG9yLlNHYW1lU3RhdGVIABIlCgdjb25maXJtGAIg",
-            "ASgLMhIucXVvcmlkb3IuU0NvbmZpcm1IABIfCgRtb3ZlGAMgASgLMg8ucXVv",
-            "cmlkb3IuU01vdmVIAEIFCgNtc2cqJgoFQ29sb3ISCQoFV2hpdGUQABIHCgNS",
-            "ZWQQARIJCgVHcmVlbhACKhwKBkFjdGlvbhIICgRNb3ZlEAASCAoEV2FsbBAB",
-            "QguqAghRdW9yaWRvcmIGcHJvdG8z"));
+            "dGF0ZRgCIAMoCzIPLnF1b3JpZG9yLlN0YXRlIi4KBlNXYWxscxISCgpHcmVl",
+            "bldhbGxzGAEgASgFEhAKCFJlZFdhbGxzGAIgASgFIhoKBkNMb2dJbhIQCghw",
+            "YXNzd29yZBgBIAEoCSIqCghTQ29uZmlybRIeCgVjb2xvchgBIAEoDjIPLnF1",
+            "b3JpZG9yLkNvbG9yIlwKD0NXcmFwcGVyTWVzc2FnZRIhCgVsb2dJbhgBIAEo",
+            "CzIQLnF1b3JpZG9yLkNMb2dJbkgAEh8KBG1vdmUYAiABKAsyDy5xdW9yaWRv",
+            "ci5DTW92ZUgAQgUKA21zZyKuAQoPU1dyYXBwZXJNZXNzYWdlEikKCWdhbWVT",
+            "dGF0ZRgBIAEoCzIULnF1b3JpZG9yLlNHYW1lU3RhdGVIABIlCgdjb25maXJt",
+            "GAIgASgLMhIucXVvcmlkb3IuU0NvbmZpcm1IABIfCgRtb3ZlGAMgASgLMg8u",
+            "cXVvcmlkb3IuU01vdmVIABIhCgV3YWxscxgEIAEoCzIQLnF1b3JpZG9yLlNX",
+            "YWxsc0gAQgUKA21zZyomCgVDb2xvchIJCgVXaGl0ZRAAEgcKA1JlZBABEgkK",
+            "BUdyZWVuEAIqHAoGQWN0aW9uEggKBE1vdmUQABIICgRXYWxsEAFCC6oCCFF1",
+            "b3JpZG9yYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Quoridor.Color), typeof(global::Quoridor.Action), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -51,10 +53,11 @@ namespace Quoridor {
             new pbr::GeneratedClrTypeInfo(typeof(global::Quoridor.SMove), global::Quoridor.SMove.Parser, new[]{ "Color", "Coords", "Action" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Quoridor.State), global::Quoridor.State.Parser, new[]{ "Color", "RemainingWalls" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Quoridor.SGameState), global::Quoridor.SGameState.Parser, new[]{ "Winning", "State" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Quoridor.SWalls), global::Quoridor.SWalls.Parser, new[]{ "GreenWalls", "RedWalls" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Quoridor.CLogIn), global::Quoridor.CLogIn.Parser, new[]{ "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Quoridor.SConfirm), global::Quoridor.SConfirm.Parser, new[]{ "Color" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Quoridor.CWrapperMessage), global::Quoridor.CWrapperMessage.Parser, new[]{ "LogIn", "Move" }, new[]{ "Msg" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Quoridor.SWrapperMessage), global::Quoridor.SWrapperMessage.Parser, new[]{ "GameState", "Confirm", "Move" }, new[]{ "Msg" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Quoridor.SWrapperMessage), global::Quoridor.SWrapperMessage.Parser, new[]{ "GameState", "Confirm", "Move", "Walls" }, new[]{ "Msg" }, null, null, null)
           }));
     }
     #endregion
@@ -1323,6 +1326,232 @@ namespace Quoridor {
 
   }
 
+  public sealed partial class SWalls : pb::IMessage<SWalls>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SWalls> _parser = new pb::MessageParser<SWalls>(() => new SWalls());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SWalls> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Quoridor.QuoridorReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SWalls() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SWalls(SWalls other) : this() {
+      greenWalls_ = other.greenWalls_;
+      redWalls_ = other.redWalls_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SWalls Clone() {
+      return new SWalls(this);
+    }
+
+    /// <summary>Field number for the "GreenWalls" field.</summary>
+    public const int GreenWallsFieldNumber = 1;
+    private int greenWalls_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int GreenWalls {
+      get { return greenWalls_; }
+      set {
+        greenWalls_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RedWalls" field.</summary>
+    public const int RedWallsFieldNumber = 2;
+    private int redWalls_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int RedWalls {
+      get { return redWalls_; }
+      set {
+        redWalls_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SWalls);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SWalls other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (GreenWalls != other.GreenWalls) return false;
+      if (RedWalls != other.RedWalls) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (GreenWalls != 0) hash ^= GreenWalls.GetHashCode();
+      if (RedWalls != 0) hash ^= RedWalls.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (GreenWalls != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(GreenWalls);
+      }
+      if (RedWalls != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(RedWalls);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (GreenWalls != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(GreenWalls);
+      }
+      if (RedWalls != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(RedWalls);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (GreenWalls != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(GreenWalls);
+      }
+      if (RedWalls != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RedWalls);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SWalls other) {
+      if (other == null) {
+        return;
+      }
+      if (other.GreenWalls != 0) {
+        GreenWalls = other.GreenWalls;
+      }
+      if (other.RedWalls != 0) {
+        RedWalls = other.RedWalls;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            GreenWalls = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            RedWalls = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            GreenWalls = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            RedWalls = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class CLogIn : pb::IMessage<CLogIn>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1337,7 +1566,7 @@ namespace Quoridor {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Quoridor.QuoridorReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Quoridor.QuoridorReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1526,7 +1755,7 @@ namespace Quoridor {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Quoridor.QuoridorReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Quoridor.QuoridorReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1715,7 +1944,7 @@ namespace Quoridor {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Quoridor.QuoridorReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Quoridor.QuoridorReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2000,7 +2229,7 @@ namespace Quoridor {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Quoridor.QuoridorReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Quoridor.QuoridorReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2029,6 +2258,9 @@ namespace Quoridor {
           break;
         case MsgOneofCase.Move:
           Move = other.Move.Clone();
+          break;
+        case MsgOneofCase.Walls:
+          Walls = other.Walls.Clone();
           break;
       }
 
@@ -2077,6 +2309,18 @@ namespace Quoridor {
       }
     }
 
+    /// <summary>Field number for the "walls" field.</summary>
+    public const int WallsFieldNumber = 4;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Quoridor.SWalls Walls {
+      get { return msgCase_ == MsgOneofCase.Walls ? (global::Quoridor.SWalls) msg_ : null; }
+      set {
+        msg_ = value;
+        msgCase_ = value == null ? MsgOneofCase.None : MsgOneofCase.Walls;
+      }
+    }
+
     private object msg_;
     /// <summary>Enum of possible cases for the "msg" oneof.</summary>
     public enum MsgOneofCase {
@@ -2084,6 +2328,7 @@ namespace Quoridor {
       GameState = 1,
       Confirm = 2,
       Move = 3,
+      Walls = 4,
     }
     private MsgOneofCase msgCase_ = MsgOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2117,6 +2362,7 @@ namespace Quoridor {
       if (!object.Equals(GameState, other.GameState)) return false;
       if (!object.Equals(Confirm, other.Confirm)) return false;
       if (!object.Equals(Move, other.Move)) return false;
+      if (!object.Equals(Walls, other.Walls)) return false;
       if (MsgCase != other.MsgCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2128,6 +2374,7 @@ namespace Quoridor {
       if (msgCase_ == MsgOneofCase.GameState) hash ^= GameState.GetHashCode();
       if (msgCase_ == MsgOneofCase.Confirm) hash ^= Confirm.GetHashCode();
       if (msgCase_ == MsgOneofCase.Move) hash ^= Move.GetHashCode();
+      if (msgCase_ == MsgOneofCase.Walls) hash ^= Walls.GetHashCode();
       hash ^= (int) msgCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2159,6 +2406,10 @@ namespace Quoridor {
         output.WriteRawTag(26);
         output.WriteMessage(Move);
       }
+      if (msgCase_ == MsgOneofCase.Walls) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Walls);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2181,6 +2432,10 @@ namespace Quoridor {
         output.WriteRawTag(26);
         output.WriteMessage(Move);
       }
+      if (msgCase_ == MsgOneofCase.Walls) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Walls);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2199,6 +2454,9 @@ namespace Quoridor {
       }
       if (msgCase_ == MsgOneofCase.Move) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Move);
+      }
+      if (msgCase_ == MsgOneofCase.Walls) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Walls);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2230,6 +2488,12 @@ namespace Quoridor {
             Move = new global::Quoridor.SMove();
           }
           Move.MergeFrom(other.Move);
+          break;
+        case MsgOneofCase.Walls:
+          if (Walls == null) {
+            Walls = new global::Quoridor.SWalls();
+          }
+          Walls.MergeFrom(other.Walls);
           break;
       }
 
@@ -2275,6 +2539,15 @@ namespace Quoridor {
             Move = subBuilder;
             break;
           }
+          case 34: {
+            global::Quoridor.SWalls subBuilder = new global::Quoridor.SWalls();
+            if (msgCase_ == MsgOneofCase.Walls) {
+              subBuilder.MergeFrom(Walls);
+            }
+            input.ReadMessage(subBuilder);
+            Walls = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -2315,6 +2588,15 @@ namespace Quoridor {
             }
             input.ReadMessage(subBuilder);
             Move = subBuilder;
+            break;
+          }
+          case 34: {
+            global::Quoridor.SWalls subBuilder = new global::Quoridor.SWalls();
+            if (msgCase_ == MsgOneofCase.Walls) {
+              subBuilder.MergeFrom(Walls);
+            }
+            input.ReadMessage(subBuilder);
+            Walls = subBuilder;
             break;
           }
         }

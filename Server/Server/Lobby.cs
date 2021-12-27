@@ -1,4 +1,5 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using Model;
 
 namespace Server
@@ -8,14 +9,21 @@ namespace Server
         public Client RedPlayer { get; private set; }
         public Client GreenPlayer { get; private set; }
         private bool _waitForPlayer;
+        private Client _currentPlayer;
         private readonly Game _game;
-        private SWrapperMessage _message;
+        private List<SWrapperMessage> _messages;
         public bool InGame;
         public Lobby(Client client)
         {
             SetGreenPlayer(client);
             _game = new Game(false, this);
             InGame = true;
+            _messages = new List<SWrapperMessage>();
+        }
+
+        private void SwitchPlayer()
+        {
+            _currentPlayer = _currentPlayer == RedPlayer ? GreenPlayer : RedPlayer;
         }
 
         public bool ContainsPlayer(string password)
@@ -25,29 +33,36 @@ namespace Server
 
         public bool MakeMove(CMove move)
         {
-            if (RedPlayer.Password == move.Password)
+            if (_currentPlayer.Password != move.Password)
             {
-                return ChooseMove(move);
+                return false;
             }
-            return GreenPlayer.Password == move.Password && ChooseMove(move);
+            
+            if (!ChooseMove(move)) return false;
+            SwitchPlayer();
+            return true;
+
         }
 
         private bool ChooseMove(CMove move)
         {
+            
             return move.Action == Action.Move ? 
                 _game.MakeMove(new Cell(new CellCoords(move.Coords.Top, move.Coords.Left))) 
                 : _game.PlaceWall(new Wall(new CellCoords(move.Coords.Top, move.Coords.Left), move.IsVertical));
+      
         }
 
         public void StartGame()
         {
-            _message = new SWrapperMessage
+            var message = new SWrapperMessage
             {
                 GameState = new SGameState()
                 {
                     Winning = Color.White,
                 }
             };
+            _messages.Add(message);
         }
 
         public bool IsWaiting()
@@ -59,6 +74,7 @@ namespace Server
         {
             RedPlayer = client;
             _waitForPlayer = false;
+            _currentPlayer = RedPlayer;
         }
 
         private void SetGreenPlayer(Client client)
@@ -75,7 +91,7 @@ namespace Server
             {
                 winColor = Color.Green;
             }
-            _message = new SWrapperMessage
+            var message = new SWrapperMessage
             {
                 GameState = new SGameState()
                 {
@@ -83,11 +99,12 @@ namespace Server
                 },
             };
             InGame = false;
+            _messages.Add(message);
         }
 
         public void RenderUpperPlayer(int top, int left)
         {
-            _message = new SWrapperMessage
+            var message = new SWrapperMessage
             {
                 Move = new SMove()
                 {
@@ -100,11 +117,12 @@ namespace Server
                     }
                 }
             };
+            _messages.Add(message);
         }
 
         public void RenderBottomPlayer(int top, int left)
         {
-            _message = new SWrapperMessage
+            var message = new SWrapperMessage
             {
                 Move = new SMove()
                 {
@@ -117,11 +135,12 @@ namespace Server
                     }
                 }
             };
+            _messages.Add(message);
         }
 
         public void RenderWall(int top, int left)
         {
-            _message = new SWrapperMessage
+            var message = new SWrapperMessage
             {
                 Move = new SMove()
                 {
@@ -133,27 +152,30 @@ namespace Server
                     }
                 }
             };
+            _messages.Add(message);
         }
 
         public void RenderRemainingWalls(int topCount, int bottomCount)
         {
-            _message = new SWrapperMessage()
+            var message = new SWrapperMessage()
             {
-                GameState = new SGameState()
+                Walls = new SWalls()
                 {
-                    Winning = Color.White,
-                    State = 
-                    {
-                        new State(){Color = Color.Green, RemainingWalls = topCount},
-                        new State(){Color = Color.Red, RemainingWalls = bottomCount}
-                    }
+                    GreenWalls = topCount,
+                    RedWalls = bottomCount,
                 }
             };
+            _messages.Add(message);
         }
 
-        public SWrapperMessage GetMessage()
+        public void ClearMessages()
         {
-            return _message;
+            _messages.Clear();
+        }
+
+        public ICollection<SWrapperMessage> GetMessages()
+        {
+            return _messages;
         }
     }
 }

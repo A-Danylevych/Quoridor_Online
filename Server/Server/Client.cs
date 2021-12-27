@@ -2,7 +2,7 @@
 
 namespace Server
 {
-    public struct Client
+    public class Client
     {
         public IPEndPoint EndPoint;
         public Color Color;
@@ -13,6 +13,11 @@ namespace Server
             EndPoint = point;
             Color = color;
             Password = password;
+        }
+
+        public Client()
+        {
+            
         }
     }
 }

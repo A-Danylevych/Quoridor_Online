@@ -33,15 +33,17 @@ namespace Server {
             "Y3Rpb24iPQoFU3RhdGUSHAoFY29sb3IYASABKA4yDS5zZXJ2ZXIuQ29sb3IS",
             "FgoOUmVtYWluaW5nV2FsbHMYAiABKAUiSgoKU0dhbWVTdGF0ZRIeCgd3aW5u",
             "aW5nGAEgASgOMg0uc2VydmVyLkNvbG9yEhwKBXN0YXRlGAIgAygLMg0uc2Vy",
-            "dmVyLlN0YXRlIhoKBkNMb2dJbhIQCghwYXNzd29yZBgBIAEoCSIoCghTQ29u",
-            "ZmlybRIcCgVjb2xvchgBIAEoDjINLnNlcnZlci5Db2xvciJYCg9DV3JhcHBl",
-            "ck1lc3NhZ2USHwoFbG9nSW4YASABKAsyDi5zZXJ2ZXIuQ0xvZ0luSAASHQoE",
-            "bW92ZRgCIAEoCzINLnNlcnZlci5DTW92ZUgAQgUKA21zZyKFAQoPU1dyYXBw",
-            "ZXJNZXNzYWdlEicKCWdhbWVTdGF0ZRgBIAEoCzISLnNlcnZlci5TR2FtZVN0",
-            "YXRlSAASIwoHY29uZmlybRgCIAEoCzIQLnNlcnZlci5TQ29uZmlybUgAEh0K",
-            "BG1vdmUYAyABKAsyDS5zZXJ2ZXIuU01vdmVIAEIFCgNtc2cqJgoFQ29sb3IS",
-            "CQoFV2hpdGUQABIHCgNSZWQQARIJCgVHcmVlbhACKhwKBkFjdGlvbhIICgRN",
-            "b3ZlEAASCAoEV2FsbBABQgmqAgZTZXJ2ZXJiBnByb3RvMw=="));
+            "dmVyLlN0YXRlIi4KBlNXYWxscxISCgpHcmVlbldhbGxzGAEgASgFEhAKCFJl",
+            "ZFdhbGxzGAIgASgFIhoKBkNMb2dJbhIQCghwYXNzd29yZBgBIAEoCSIoCghT",
+            "Q29uZmlybRIcCgVjb2xvchgBIAEoDjINLnNlcnZlci5Db2xvciJYCg9DV3Jh",
+            "cHBlck1lc3NhZ2USHwoFbG9nSW4YASABKAsyDi5zZXJ2ZXIuQ0xvZ0luSAAS",
+            "HQoEbW92ZRgCIAEoCzINLnNlcnZlci5DTW92ZUgAQgUKA21zZyKmAQoPU1dy",
+            "YXBwZXJNZXNzYWdlEicKCWdhbWVTdGF0ZRgBIAEoCzISLnNlcnZlci5TR2Ft",
+            "ZVN0YXRlSAASIwoHY29uZmlybRgCIAEoCzIQLnNlcnZlci5TQ29uZmlybUgA",
+            "Eh0KBG1vdmUYAyABKAsyDS5zZXJ2ZXIuU01vdmVIABIfCgV3YWxscxgEIAEo",
+            "CzIOLnNlcnZlci5TV2FsbHNIAEIFCgNtc2cqJgoFQ29sb3ISCQoFV2hpdGUQ",
+            "ABIHCgNSZWQQARIJCgVHcmVlbhACKhwKBkFjdGlvbhIICgRNb3ZlEAASCAoE",
+            "V2FsbBABQgmqAgZTZXJ2ZXJiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(new[] {typeof(global::Server.Color), typeof(global::Server.Action), }, null, new pbr::GeneratedClrTypeInfo[] {
@@ -50,10 +52,11 @@ namespace Server {
             new pbr::GeneratedClrTypeInfo(typeof(global::Server.SMove), global::Server.SMove.Parser, new[]{ "Color", "Coords", "Action" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Server.State), global::Server.State.Parser, new[]{ "Color", "RemainingWalls" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Server.SGameState), global::Server.SGameState.Parser, new[]{ "Winning", "State" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::Server.SWalls), global::Server.SWalls.Parser, new[]{ "GreenWalls", "RedWalls" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Server.CLogIn), global::Server.CLogIn.Parser, new[]{ "Password" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Server.SConfirm), global::Server.SConfirm.Parser, new[]{ "Color" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::Server.CWrapperMessage), global::Server.CWrapperMessage.Parser, new[]{ "LogIn", "Move" }, new[]{ "Msg" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::Server.SWrapperMessage), global::Server.SWrapperMessage.Parser, new[]{ "GameState", "Confirm", "Move" }, new[]{ "Msg" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::Server.SWrapperMessage), global::Server.SWrapperMessage.Parser, new[]{ "GameState", "Confirm", "Move", "Walls" }, new[]{ "Msg" }, null, null, null)
           }));
     }
     #endregion
@@ -1322,6 +1325,232 @@ namespace Server {
 
   }
 
+  public sealed partial class SWalls : pb::IMessage<SWalls>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<SWalls> _parser = new pb::MessageParser<SWalls>(() => new SWalls());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pb::MessageParser<SWalls> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::Server.QuoridorReflection.Descriptor.MessageTypes[5]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SWalls() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SWalls(SWalls other) : this() {
+      greenWalls_ = other.greenWalls_;
+      redWalls_ = other.redWalls_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public SWalls Clone() {
+      return new SWalls(this);
+    }
+
+    /// <summary>Field number for the "GreenWalls" field.</summary>
+    public const int GreenWallsFieldNumber = 1;
+    private int greenWalls_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int GreenWalls {
+      get { return greenWalls_; }
+      set {
+        greenWalls_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "RedWalls" field.</summary>
+    public const int RedWallsFieldNumber = 2;
+    private int redWalls_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int RedWalls {
+      get { return redWalls_; }
+      set {
+        redWalls_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override bool Equals(object other) {
+      return Equals(other as SWalls);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public bool Equals(SWalls other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (GreenWalls != other.GreenWalls) return false;
+      if (RedWalls != other.RedWalls) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (GreenWalls != 0) hash ^= GreenWalls.GetHashCode();
+      if (RedWalls != 0) hash ^= RedWalls.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (GreenWalls != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(GreenWalls);
+      }
+      if (RedWalls != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(RedWalls);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (GreenWalls != 0) {
+        output.WriteRawTag(8);
+        output.WriteInt32(GreenWalls);
+      }
+      if (RedWalls != 0) {
+        output.WriteRawTag(16);
+        output.WriteInt32(RedWalls);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public int CalculateSize() {
+      int size = 0;
+      if (GreenWalls != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(GreenWalls);
+      }
+      if (RedWalls != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(RedWalls);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(SWalls other) {
+      if (other == null) {
+        return;
+      }
+      if (other.GreenWalls != 0) {
+        GreenWalls = other.GreenWalls;
+      }
+      if (other.RedWalls != 0) {
+        RedWalls = other.RedWalls;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            GreenWalls = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            RedWalls = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            GreenWalls = input.ReadInt32();
+            break;
+          }
+          case 16: {
+            RedWalls = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class CLogIn : pb::IMessage<CLogIn>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -1336,7 +1565,7 @@ namespace Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Server.QuoridorReflection.Descriptor.MessageTypes[5]; }
+      get { return global::Server.QuoridorReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1525,7 +1754,7 @@ namespace Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Server.QuoridorReflection.Descriptor.MessageTypes[6]; }
+      get { return global::Server.QuoridorReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1714,7 +1943,7 @@ namespace Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Server.QuoridorReflection.Descriptor.MessageTypes[7]; }
+      get { return global::Server.QuoridorReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1999,7 +2228,7 @@ namespace Server {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::Server.QuoridorReflection.Descriptor.MessageTypes[8]; }
+      get { return global::Server.QuoridorReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2028,6 +2257,9 @@ namespace Server {
           break;
         case MsgOneofCase.Move:
           Move = other.Move.Clone();
+          break;
+        case MsgOneofCase.Walls:
+          Walls = other.Walls.Clone();
           break;
       }
 
@@ -2076,6 +2308,18 @@ namespace Server {
       }
     }
 
+    /// <summary>Field number for the "walls" field.</summary>
+    public const int WallsFieldNumber = 4;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+    public global::Server.SWalls Walls {
+      get { return msgCase_ == MsgOneofCase.Walls ? (global::Server.SWalls) msg_ : null; }
+      set {
+        msg_ = value;
+        msgCase_ = value == null ? MsgOneofCase.None : MsgOneofCase.Walls;
+      }
+    }
+
     private object msg_;
     /// <summary>Enum of possible cases for the "msg" oneof.</summary>
     public enum MsgOneofCase {
@@ -2083,6 +2327,7 @@ namespace Server {
       GameState = 1,
       Confirm = 2,
       Move = 3,
+      Walls = 4,
     }
     private MsgOneofCase msgCase_ = MsgOneofCase.None;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2116,6 +2361,7 @@ namespace Server {
       if (!object.Equals(GameState, other.GameState)) return false;
       if (!object.Equals(Confirm, other.Confirm)) return false;
       if (!object.Equals(Move, other.Move)) return false;
+      if (!object.Equals(Walls, other.Walls)) return false;
       if (MsgCase != other.MsgCase) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -2127,6 +2373,7 @@ namespace Server {
       if (msgCase_ == MsgOneofCase.GameState) hash ^= GameState.GetHashCode();
       if (msgCase_ == MsgOneofCase.Confirm) hash ^= Confirm.GetHashCode();
       if (msgCase_ == MsgOneofCase.Move) hash ^= Move.GetHashCode();
+      if (msgCase_ == MsgOneofCase.Walls) hash ^= Walls.GetHashCode();
       hash ^= (int) msgCase_;
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -2158,6 +2405,10 @@ namespace Server {
         output.WriteRawTag(26);
         output.WriteMessage(Move);
       }
+      if (msgCase_ == MsgOneofCase.Walls) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Walls);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -2180,6 +2431,10 @@ namespace Server {
         output.WriteRawTag(26);
         output.WriteMessage(Move);
       }
+      if (msgCase_ == MsgOneofCase.Walls) {
+        output.WriteRawTag(34);
+        output.WriteMessage(Walls);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -2198,6 +2453,9 @@ namespace Server {
       }
       if (msgCase_ == MsgOneofCase.Move) {
         size += 1 + pb::CodedOutputStream.ComputeMessageSize(Move);
+      }
+      if (msgCase_ == MsgOneofCase.Walls) {
+        size += 1 + pb::CodedOutputStream.ComputeMessageSize(Walls);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -2229,6 +2487,12 @@ namespace Server {
             Move = new global::Server.SMove();
           }
           Move.MergeFrom(other.Move);
+          break;
+        case MsgOneofCase.Walls:
+          if (Walls == null) {
+            Walls = new global::Server.SWalls();
+          }
+          Walls.MergeFrom(other.Walls);
           break;
       }
 
@@ -2274,6 +2538,15 @@ namespace Server {
             Move = subBuilder;
             break;
           }
+          case 34: {
+            global::Server.SWalls subBuilder = new global::Server.SWalls();
+            if (msgCase_ == MsgOneofCase.Walls) {
+              subBuilder.MergeFrom(Walls);
+            }
+            input.ReadMessage(subBuilder);
+            Walls = subBuilder;
+            break;
+          }
         }
       }
     #endif
@@ -2314,6 +2587,15 @@ namespace Server {
             }
             input.ReadMessage(subBuilder);
             Move = subBuilder;
+            break;
+          }
+          case 34: {
+            global::Server.SWalls subBuilder = new global::Server.SWalls();
+            if (msgCase_ == MsgOneofCase.Walls) {
+              subBuilder.MergeFrom(Walls);
+            }
+            input.ReadMessage(subBuilder);
+            Walls = subBuilder;
             break;
           }
         }

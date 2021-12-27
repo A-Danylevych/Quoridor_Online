@@ -37,6 +37,10 @@ message SGameState{
   Color winning = 1;
   repeated State state = 2;
 }
+message SWalls{
+  int32 GreenWalls = 1;
+  int32 RedWalls = 2;
+}
 
 message CLogIn{
   string password = 1;
@@ -57,5 +61,6 @@ message SWrapperMessage {
     SGameState gameState = 1;
     SConfirm confirm = 2;
     SMove move = 3;
+    SWalls walls = 4;
   }
 }
