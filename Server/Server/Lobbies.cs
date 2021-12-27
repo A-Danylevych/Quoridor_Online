@@ -40,9 +40,12 @@ namespace Server
 
         public void CloseFinished()
         {
-            foreach (var lobby in _games.Where(lobby => !lobby.InGame))
+            for (var i = 0; i < _games.Count; i++)
             {
-                _games.Remove(lobby);
+                if (!_games[i].InGame)
+                {
+                    _games.RemoveAt(i);
+                }
             }
         }
 

@@ -75,7 +75,6 @@ namespace Server
                         continue;
                     }
 
-        
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(message);
                     Console.ForegroundColor = ConsoleColor.White;
@@ -85,7 +84,7 @@ namespace Server
                 }
                 lobby.ClearMessages();
             } 
-            //_lobbies.CloseFinished();
+            _lobbies.CloseFinished();
         }
     }
 }

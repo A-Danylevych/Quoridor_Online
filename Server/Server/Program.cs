@@ -22,10 +22,5 @@ namespace Server
                 read = Console.ReadLine();
             } while (read != "quit");
         }
-
-        private async Task ServerRun()
-        {
-            
-        }
     }
 }
