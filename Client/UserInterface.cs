@@ -43,6 +43,7 @@ namespace Quoridor
         {
             var message = new CWrapperMessage { LogIn = new CLogIn { Password = _password } };
             _client.SendMessage(message);
+            label1.Text = @"Conecting....";
         }
 
         private void MainGameTimer(object sender, EventArgs e)

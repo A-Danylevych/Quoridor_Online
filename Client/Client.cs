@@ -77,17 +77,18 @@ namespace Quoridor
         {
             var config = new ConfigurationBuilder().SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 .AddJsonFile("configuration.json").Build();
-            string connection = config.GetConnectionString("DefaultConnection");
+            var connection = config.GetConnectionString("DefaultConnection");
             var endpoint = new IPEndPoint(IPAddress.Parse(connection), ListenPort);
             
-            _server = new UdpClient(endpoint);
+            _server = new UdpClient();
+            _server.Connect(endpoint);
         }
         public static Client GetInstance()
         {
             if (_instance != null) return _instance;
             lock (SyncRoot)
             {
-                _instance = GetInstance();
+                _instance = new Client();
             }
             return _instance;
         }
