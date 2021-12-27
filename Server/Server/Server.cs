@@ -38,7 +38,7 @@ namespace Server
             {
                 Password = message.LogIn.Password
             };
-            client.EndPoint = client.EndPoint;
+            client.EndPoint = result.RemoteEndPoint;
             client = _lobbies.FindGame(client);
             var responseMessage = new SWrapperMessage()
             {
