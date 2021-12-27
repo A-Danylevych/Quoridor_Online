@@ -32,13 +32,12 @@ namespace Quoridor
         {
             var result = await _server.ReceiveAsync();
             var message = SWrapperMessage.Parser.ParseFrom(result.Buffer);
-            if (message.MsgCase == SWrapperMessage.MsgOneofCase.Confirm)
+            switch (message.MsgCase)
             {
-                _interface.Close(message.Confirm.Color);
-            }
-            else if(message.MsgCase == SWrapperMessage.MsgOneofCase.Move)
-            {
-                if (message.Move.Action == Action.Move)
+                case SWrapperMessage.MsgOneofCase.Confirm:
+                    _interface.Close(message.Confirm.Color);
+                    break;
+                case SWrapperMessage.MsgOneofCase.Move when message.Move.Action == Action.Move:
                 {
                     if (message.Move.Color == Color.Green)
                     {
@@ -48,21 +47,23 @@ namespace Quoridor
                     {
                         _viewer.RenderBottomPlayer(message.Move.Coords.Top, message.Move.Coords.Left);
                     }
+
+                    break;
                 }
-                else
-                {
+                case SWrapperMessage.MsgOneofCase.Move:
                     _viewer.RenderWall(message.Move.Coords.Top, message.Move.Coords.Left);
-                } 
-            }
-            else if(message.MsgCase == SWrapperMessage.MsgOneofCase.GameState)
-            {
-                if(message.GameState.Winning == Color.Red)
-                {
+                    break;
+                case SWrapperMessage.MsgOneofCase.GameState when message.GameState.Winning == Color.Red:
                     _viewer.RenderEnding(Color.Red.ToString());
-                }
-                else if(message.GameState.Winning == Color.Green)
+                    break;
+                case SWrapperMessage.MsgOneofCase.GameState:
                 {
-                    _viewer.RenderEnding(Color.Green.ToString());
+                    if(message.GameState.Winning == Color.Green)
+                    {
+                        _viewer.RenderEnding(Color.Green.ToString());
+                    }
+
+                    break;
                 }
             }
         }
@@ -86,10 +87,7 @@ namespace Quoridor
             if (_instance != null) return _instance;
             lock (SyncRoot)
             {
-                if (_instance == null)
-                {
-                    _instance = new Client();
-                }
+                _instance = GetInstance();
             }
             return _instance;
         }

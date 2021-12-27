@@ -19,6 +19,7 @@ namespace Quoridor
             _client = Client.GetInstance();
             _client.SetInterface(this);
             _client.SetView(Form);
+            _client.Receive();
         }
 
         public UserInterface(string password)

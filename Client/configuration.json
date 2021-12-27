@@ -1,6 +1,6 @@
 {
   "ConnectionStrings": {
-    "DefaultConnection": ""
+    "DefaultConnection": "31.41.71.153"
   },
   "exclude": [
     "**/bin",
