@@ -3022,7 +3022,6 @@ namespace Quoridor
             this.GreenDot.TabIndex = 48;
             this.GreenDot.TabStop = false;
             this.GreenDot.Tag = "Green Dot";
-            this.GreenDot.Click += new System.EventHandler(this.GreenDot_Click);
             // 
             // RedDot
             // 
